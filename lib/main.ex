@@ -4,10 +4,10 @@ defmodule CLI do
   }
 
   def main(args) do
-    IO.inspect(command(args))
-
     case args do
       [database_file_path, command] ->
+        IO.inspect(command(command))
+
         case command do
           ".dbinfo" ->
             file = File.open!(database_file_path, [:read, :binary])
