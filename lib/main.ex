@@ -6,7 +6,7 @@ defmodule CLI do
   def main(args) do
     case args do
       [database_file_path, command] ->
-        IO.inspect(command(command))
+        command(command).handle()
 
         case command do
           ".dbinfo" ->
