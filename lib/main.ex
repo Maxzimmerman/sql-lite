@@ -1,5 +1,11 @@
 defmodule CLI do
+  @commands %{
+    ".dbinfo" => Commands.PageSize
+  }
+
   def main(args) do
+    IO.inspect(command(args))
+
     case args do
       [database_file_path, command] ->
         case command do
@@ -19,4 +25,6 @@ defmodule CLI do
         IO.puts("Usage: your_program <database_file> <command>")
     end
   end
+
+  defp command(command), do: Map.get(@commands, command)
 end
